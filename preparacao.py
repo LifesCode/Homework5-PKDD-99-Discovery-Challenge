@@ -266,37 +266,5 @@ del trans_df['date']
 trans_df = trans_df.rename(columns={'amount': 'trans_amount', 'balance':'balance_after_trans', 'bank':'trans_bank_partner', 'account':'trans_account_partner'})
 #print(trans_df.head(n=10))
 print(loan_df.head())
-# data quality checks for loan.
 
-# count how many are in loan_df but not in account_df
-missing_account_ids = np.isin(loan_df['account_id'], account_df['account_id'], invert=True).sum()
-print('Missing account ids in loan_df: {}'.format(missing_account_ids))
 
-print()
-# loans per account. Does this make sense?
-loans_per_account = len(loan_df)/len(account_df)
-print('Loans/account: {}'.format(loans_per_account))
-
-print()
-
-# print summary of loan_date. Earliest occurred in 1993. Latest in 1999.
-print(loan_df['loan_date'].describe())
-
-# look at date.
-histogram(loan_df, 'loan_date', 300)
-    
-# look at loan_duration.
-histogram(loan_df, 'loan_duration', 10)
-
-# look at monthly_loan_payment.
-histogram(loan_df, 'monthly_loan_payment', 100)
-
-# look at loan_status.
-#
-# 'A stands for contract finished, no problems,
-# 'B' stands for contract finished, loan not payed,
-# 'C' stands for running contract, OK so far,
-# 'D' stands for running contract, client in debt
-# Seems to make sense.
-#
-loan_df['loan_status'].value_counts().plot(kind='bar', subplots=True)
