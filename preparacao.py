@@ -45,7 +45,7 @@ print(card_df.dtypes)
 card_df = card_df.rename(columns={'type': 'card_type'})
 print(card_df.head())
 #------------------------------------------------------------
-#           Clean disp table
+#           Clean client table
 
 
 client_df = pd.read_csv("client.csv", sep=';')
