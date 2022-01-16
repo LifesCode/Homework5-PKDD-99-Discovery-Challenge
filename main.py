@@ -2,6 +2,20 @@ import sys
 import solutions as s
 
 
+def print_exercises_names():
+    content = "Available exercises names:\n" \
+              "ch1-ex1    -> clean the database\n" \
+              "ch1-ex2    -> define a problem to improve the bank's services\n" \
+              "ch1-ex3    -> Show how Machine Learning can be used to solve this problem\n" \
+              "ch2-ex1    -> Predict the average amount of money for an account\n" \
+              "ch2-ex2-l1 -> Show which clients have credit cards\n" \
+              "ch2-ex2-l2 -> Show which clients asked the bank for loans\n" \
+              "ch2-ex2-l3 -> Show which clients are minors\n" \
+              "ch2-ex2-l4 -> Show, for each sex, the number of clients\n" \
+              "ch2-ex2-l5 -> Show the types of credit cards the bank offers\n"
+    print(content)
+
+
 class Prompt_Interaction:
     exercises = {"ch1-ex1": s.ch1_ex1,
                  "ch1-ex2": s.ch1_ex2,
@@ -16,11 +30,16 @@ class Prompt_Interaction:
                  }  # dictionary of with [key: values] = [commands: their corresponding functions]
 
     def __init__(self, argv: list):
+        self.exercise_type = "Exercise"
         self.action = ""
         self.exercise = None
         if "-h" in argv:
-            argv.remove("-h")  # remove the command help from the prompt-given parameters of execution
             self.action = "help"
+            argv.remove("-h")  # remove the command help from the prompt-given parameters of execution
+            if not len(argv):
+                self.exercise_type = "function"
+                self.exercise = print_exercises_names
+                return
         elif "-s" in argv:
             argv.remove("-s")  # remove the command help from the prompt-given parameters of execution
             self.action = "solve"
@@ -33,6 +52,8 @@ class Prompt_Interaction:
         if self.exercise is None:  # prevents executing non-existing exercises
             self.exercise = self.exercises["invalid_name"]()
             self.exercise.solve()
+        elif self.exercise_type == "function":
+            self.exercise()
         elif self.action == "help":
             self.exercise.help()
         else:

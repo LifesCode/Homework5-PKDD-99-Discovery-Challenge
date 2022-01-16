@@ -3,8 +3,8 @@ import db_cleaning as dbc
 
 
 #  -------------------------- CHALLENGE 1-1: Cleaning and treatment of the data ----------------------------------------
-help_content_ch1_ex1 = "------------------------ Challenge 1 Exercise 1 ------------------------" \
-                       ""\
+help_content_ch1_ex1 = "------------------------ Challenge 1 Exercise 1 ------------------------\n" \
+                       "-> Task: Clean the Database\n"\
 
 def clean_database():
     try:
@@ -22,7 +22,7 @@ def clean_database():
 
 #  -------------------------- CHALLENGE 1-2: Define a problem to help the bank improve his services --------------------
 help_content_ch1_ex2 = "------------------------ Challenge 1 Exercise 2 ------------------------" \
-                       ""\
+                       "Task: define a problem to improve the bank's services"\
 
 def define_problem_to_help_bank_improve():
     pass
@@ -30,7 +30,7 @@ def define_problem_to_help_bank_improve():
 
 #  -------------------------- CHALLENGE 1-3: Show how ML could be used to solve the Defined Problem --------------------
 help_content_ch1_ex3 = "------------------------ Challenge 1 Exercise 3 ------------------------" \
-                       ""\
+                       "Task: Show how Machine Learning can be used to solve this problem"\
 
 def problem_solution():
     pass
@@ -38,7 +38,7 @@ def problem_solution():
 
 #  -------------------------- CHALLENGE 2-1: Predict The Average Credit/Bank Account -----------------------------------
 help_content_ch2_ex1 = "------------------------ Challenge 2 Exercise 1 ------------------------" \
-                       ""\
+                       "Task: Predict the average amount of money for an account"\
 
 def predict_average_credit():
     pass
@@ -46,7 +46,7 @@ def predict_average_credit():
 
 #  -------------------------- CHALLENGE 2-2-1: You Could Also ----------------------------------------------------------
 help_content_ch2_ex2_l1 = "------------------------ Challenge 2 Exercise 2 Line 1 ------------------" \
-                          ""\
+                          "Task: Show which clients have credit cards"\
 
 # Returns a list of all the clients with a credit card
 def which_client_has_credit_card():
@@ -62,7 +62,7 @@ def which_client_has_credit_card():
 
 #  -------------------------- CHALLENGE 2-2-2: You Could Also ----------------------------------------------------------
 help_content_ch2_ex2_l2 = "------------------------ Challenge 2 Exercise 2 Line 2 ------------------" \
-                          ""\
+                          "Task: Show which clients asked the bank for loans"\
 
 # Returns a list of all the clients who asked for a loan
 def who_asked_for_loans():
@@ -82,7 +82,7 @@ def who_asked_for_loans():
 
 #  -------------------------- CHALLENGE 2-2-3: You Could Also ----------------------------------------------------------
 help_content_ch2_ex2_l3 = "------------------------ Challenge 2 Exercise 2 Line 3 ------------------" \
-                          ""\
+                          "Task: Show which clients are minors"\
 
 # Returns a list of all the clients who are minors (have an age < 18 years old)
 def minor_clients():
@@ -95,7 +95,7 @@ def minor_clients():
 
 #  -------------------------- CHALLENGE 2-2-4: You Could Also ----------------------------------------------------------
 help_content_ch2_ex2_l4 = "------------------------ Challenge 2 Exercise 2 Line 4 ------------------" \
-                          ""\
+                          "Task: Show, for each sex, the number of clients"\
 
 # Returns a tuple with 2 values which ate the Total Number of: 1->  Male clients; 2-> Female clients.
 def number_of_clients_for_sex():
@@ -106,7 +106,7 @@ def number_of_clients_for_sex():
 
 #  -------------------------- CHALLENGE 2-2-5: You Could Also ----------------------------------------------------------
 help_content_ch2_ex2_l5 = "------------------------ Challenge 2 Exercise 2 Line 5 ------------------" \
-                          ""\
+                          "Task: Show the types of credit cards the bank offers"\
 
 # Returns a list of all the types of cards offered by the bank
 def types_of_cards():

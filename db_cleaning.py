@@ -386,8 +386,8 @@ def clean_transaction_table(save_changes=False):
     return trans_df
 
 
-# Remember to put a line at the end of each cleaning function so that the files are updated
-
+# ------------------------------------- ALLOW TABLES TO BE IMPORTED SAFELY ---------------------------------------------
+# returns the clean version of a specific file.
 def get_clean_table(name):
     get_functions = {"account.csv": clean_account_table,
                      "card.csv": clean_card_table,
