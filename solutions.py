@@ -25,8 +25,8 @@ help_content_ch1_ex2 = "------------------------ Challenge 1 Exercise 2 --------
                        "Task: define a problem to improve the bank's services"\
 
 def define_problem_to_help_bank_improve():
-    solution_definition = "-> Basic Idea: Definition of a good client based on loan records\n"\
-                          "-> Details: A good metric for finding out if a client is good or bad is by\n" \
+    solution_definition = "\n-> Basic Idea: Definition of a good client based on loan records\n"\
+                          "\n-> Details: A good metric for finding out if a client is good or bad is by\n" \
                           "analysing his loan record. More specifically: analysing his loan status and amount.\n" \
                           "If a client has a record of paying his loans, and the amount of the loan is considerable\n" \
                           "than the client is a good client. If he has a record of not paying his loans and the\n" \
@@ -39,18 +39,31 @@ help_content_ch1_ex3 = "------------------------ Challenge 1 Exercise 3 --------
                        "Task: Show how Machine Learning can be used to solve this problem"\
 
 def problem_solution():
-    solution_definition = "-> Basic Idea: Using a mathematical definition of a good client as desired output\n"\
+    solution_definition = "\n-> Basic Idea: Using a mathematical definition of a good client as desired output\n"\
                           "and predict it based on specific information about the client\n" \
-                          "-> Details: \n\tFirst: Whe create a field for every client. This field will contain\n" \
+                          "\n-> Details: \n" \
+                          "\tFIRST: We create a field for every client. This field will contain\n" \
                           "a value proportional to how good of a client he is for the bank. This value will be\n" \
                           "calculated like it was defined in the problem: Based on the size of his loans and how\n"\
-                          "well he pays them. Mathematically: G = A*L" \
+                          "well he pays them. Mathematically: G = A*L\n" \
                           "\t -> G: It defines how good a client is. The higher the value, the better a client is;\n" \
                           "\t -> A: Average Amount of the loan he asked to the bank. Directly proportional to |G|;\n" \
-                          "\n -> L: Average Loan status of the client. It a client has a loan and a record of\n" \
-                          "paying them, he is a good client\n" \
-                          "How would it help: this prediction not only \n" \
-                          "\n" \
+                          "\t -> L: Average Loan status of the client. Goes in a range from [-1; 1].\n" \
+                          "\t -> Meaning of the Formula: The BEST client is defined as the one that loans the \n" \
+                          "\t    greatest amount of money, and has a record of paying all his loans.\n"\
+                          "\t    The exact opposite is the definition of the WORST client.\n" \
+                          "\t    This way, a good client is when G > 0. A bad client is when G <= 0\n" \
+                          "\tSECOND: Choose what information about a client to use in order to predict G.\n" \
+                          "-> Where he lives (found in 'district'); -> Age (found in 'client');\n" \
+                          "->type of Credit card (found in 'card')\n" \
+                          "\tTHIRD: Choose a MACHINE LEARNING Model/Algorithm to use (based on the type of\n" \
+                          "INPUT defined in the SECOND section and the type of OUTPUT defined in the FIRST section\n" \
+                          "A good choice would be to use a CLASSIFICATION algorithm like K-NN\n" \
+                          "\tFORTH: Train the model."\
+                          "\n-> How would it help: At this point, if the model gets an acceptable accuracy, we have\n" \
+                          "a model that can predict the value which defines how good a client is. With this value,\n" \
+                          "it is easier to find out what client to offer different kinds of services that could not\n" \
+                          "be offered to a bad client.\n" \
                           "\n"
     print(solution_definition)
 

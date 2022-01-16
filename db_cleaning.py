@@ -401,5 +401,5 @@ def get_clean_table(name):
     try:
         table = get_functions[name]()
     except:
-        table = pd.read_csv(f"{data_directory}/{name}")
+        table = pd.read_csv(f"{data_directory}/{name}", sep=";")
     return table
