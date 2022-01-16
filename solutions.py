@@ -6,16 +6,18 @@ import db_cleaning as dbc
 help_content_ch1_ex1 = "------------------------ Challenge 1 Exercise 1 ------------------------" \
                        ""\
 
-
 def clean_database():
-    dbc.clean_account_table(save_changes=True)
-    dbc.clean_card_table(save_changes=True)
-    dbc.clean_client_table(save_changes=True)
-    dbc.clean_disp_table(save_changes=True)
-    dbc.clean_district_table(save_changes=True)
-    dbc.clean_loan_table(save_changes=True)
-    dbc.clean_order_table(save_changes=True)
-    dbc.clean_transaction_table(save_changes=True)
+    try:
+        dbc.clean_account_table(save_changes=True)
+        dbc.clean_card_table(save_changes=True)
+        dbc.clean_client_table(save_changes=True)
+        dbc.clean_disp_table(save_changes=True)
+        dbc.clean_district_table(save_changes=True)
+        dbc.clean_loan_table(save_changes=True)
+        dbc.clean_order_table(save_changes=True)
+        dbc.clean_transaction_table(save_changes=True)
+    except KeyError:
+        print("Database was already clean")
 
 
 #  -------------------------- CHALLENGE 1-2: Define a problem to help the bank improve his services --------------------
@@ -30,7 +32,6 @@ def define_problem_to_help_bank_improve():
 help_content_ch1_ex3 = "------------------------ Challenge 1 Exercise 3 ------------------------" \
                        ""\
 
-
 def problem_solution():
     pass
 
@@ -39,7 +40,6 @@ def problem_solution():
 help_content_ch2_ex1 = "------------------------ Challenge 2 Exercise 1 ------------------------" \
                        ""\
 
-
 def predict_average_credit():
     pass
 
@@ -47,7 +47,6 @@ def predict_average_credit():
 #  -------------------------- CHALLENGE 2-2-1: You Could Also ----------------------------------------------------------
 help_content_ch2_ex2_l1 = "------------------------ Challenge 2 Exercise 2 Line 1 ------------------" \
                           ""\
-
 
 # Returns a list of all the clients with a credit card
 def which_client_has_credit_card():
@@ -64,7 +63,6 @@ def which_client_has_credit_card():
 #  -------------------------- CHALLENGE 2-2-2: You Could Also ----------------------------------------------------------
 help_content_ch2_ex2_l2 = "------------------------ Challenge 2 Exercise 2 Line 2 ------------------" \
                           ""\
-
 
 # Returns a list of all the clients who asked for a loan
 def who_asked_for_loans():
@@ -86,12 +84,11 @@ def who_asked_for_loans():
 help_content_ch2_ex2_l3 = "------------------------ Challenge 2 Exercise 2 Line 3 ------------------" \
                           ""\
 
-
 # Returns a list of all the clients who are minors (have an age < 18 years old)
 def minor_clients():
     client_df = dbc.get_clean_table("client.csv")
-    minor_clients_id = [client_id for client_id, client_age in zip(client_df['client_id'], client_df['client_age'])
-                        if client_age < 18]
+    clients_age = client_df['client_birth_date'].map(dbc.convert_birthday_to_age)
+    minor_clients_id = [cli_id for cli_id, cli_age in zip(client_df['client_id'], clients_age) if cli_age<18]
     minor_clients_number = len(minor_clients_id)
     print(f"-> Minor clients ID: {minor_clients_id}\n->Number of Minor Clients: {minor_clients_number}")
 
@@ -99,7 +96,6 @@ def minor_clients():
 #  -------------------------- CHALLENGE 2-2-4: You Could Also ----------------------------------------------------------
 help_content_ch2_ex2_l4 = "------------------------ Challenge 2 Exercise 2 Line 4 ------------------" \
                           ""\
-
 
 # Returns a tuple with 2 values which ate the Total Number of: 1->  Male clients; 2-> Female clients.
 def number_of_clients_for_sex():
@@ -111,7 +107,6 @@ def number_of_clients_for_sex():
 #  -------------------------- CHALLENGE 2-2-5: You Could Also ----------------------------------------------------------
 help_content_ch2_ex2_l5 = "------------------------ Challenge 2 Exercise 2 Line 5 ------------------" \
                           ""\
-
 
 # Returns a list of all the types of cards offered by the bank
 def types_of_cards():
@@ -137,34 +132,26 @@ class Exercise:
 def ch1_ex1():
     return Exercise(clean_database, help_content_ch1_ex1)
 
-
 def ch1_ex2():
     return Exercise(define_problem_to_help_bank_improve, help_content_ch1_ex2)
-
 
 def ch1_ex3():
     return Exercise(problem_solution, help_content_ch1_ex3)
 
-
 def ch2_ex1():
     return Exercise(predict_average_credit, help_content_ch2_ex1)
-
 
 def ch2_ex2_l1():
     return Exercise(which_client_has_credit_card, help_content_ch2_ex2_l1)
 
-
 def ch2_ex2_l2():
     return Exercise(who_asked_for_loans, help_content_ch2_ex2_l2)
-
 
 def ch2_ex2_l3():
     return Exercise(minor_clients, help_content_ch2_ex2_l3)
 
-
 def ch2_ex2_l4():
     return Exercise(number_of_clients_for_sex, help_content_ch2_ex2_l4)
-
 
 def ch2_ex2_l5():
     return Exercise(types_of_cards, help_content_ch2_ex2_l5)
