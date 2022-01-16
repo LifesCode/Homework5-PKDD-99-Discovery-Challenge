@@ -365,7 +365,7 @@ def clean_transaction_table(save_changes=False):
     # convert data from field "date" to a more appropriate datatype to work with later
     trans_df['date'] = trans_df['date'].map(convert_int_to_date)
     # convert data from field "date" & give it to new field "trans_date"
-    trans_df['trans_date'] = trans_df['date'].map(convert_date_to_days)
+    trans_df['trans_date'] = trans_df['date']
 
     # change some field to a more descriptive name
     trans_df = trans_df.rename(columns={

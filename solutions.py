@@ -39,10 +39,17 @@ help_content_ch1_ex3 = "------------------------ Challenge 1 Exercise 3 --------
                        "Task: Show how Machine Learning can be used to solve this problem"\
 
 def problem_solution():
-    solution_definition = "\n" \
-                          "\n" \
-                          "\n" \
-                          "\n" \
+    solution_definition = "-> Basic Idea: Using a mathematical definition of a good client as desired output\n"\
+                          "and predict it based on specific information about the client\n" \
+                          "-> Details: \n\tFirst: Whe create a field for every client. This field will contain\n" \
+                          "a value proportional to how good of a client he is for the bank. This value will be\n" \
+                          "calculated like it was defined in the problem: Based on the size of his loans and how\n"\
+                          "well he pays them. Mathematically: G = A*L" \
+                          "\t -> G: It defines how good a client is. The higher the value, the better a client is;\n" \
+                          "\t -> A: Average Amount of the loan he asked to the bank. Directly proportional to |G|;\n" \
+                          "\n -> L: Average Loan status of the client. It a client has a loan and a record of\n" \
+                          "paying them, he is a good client\n" \
+                          "How would it help: this prediction not only \n" \
                           "\n" \
                           "\n"
     print(solution_definition)

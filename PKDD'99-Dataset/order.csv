@@ -1,4 +1,4 @@
-;order_id;account_id;order_bank_to;order_account_to;order_amount;order_k_symbol
+;order_id;account_id;recipient_bank;recipient_account;debited_amount;payment_characterization
 0;29401;1;YZ;87144583;2452.0;HOUSEHOLD_PAYMENT
 1;29402;2;ST;89597016;3372.7;LOAN_PAYMENT
 2;29403;2;QR;13943797;7266.0;HOUSEHOLD_PAYMENT
