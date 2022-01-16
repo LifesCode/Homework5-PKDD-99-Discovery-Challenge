@@ -25,7 +25,13 @@ help_content_ch1_ex2 = "------------------------ Challenge 1 Exercise 2 --------
                        "Task: define a problem to improve the bank's services"\
 
 def define_problem_to_help_bank_improve():
-    pass
+    solution_definition = "-> Basic Idea: Definition of a good client based on loan records\n"\
+                          "-> Details: A good metric for finding out if a client is good or bad is by\n" \
+                          "analysing his loan record. More specifically: analysing his loan status and amount.\n" \
+                          "If a client has a record of paying his loans, and the amount of the loan is considerable\n" \
+                          "than the client is a good client. If he has a record of not paying his loans and the\n" \
+                          "amount is not considerable, than he is a bad client\n"
+    print(solution_definition)
 
 
 #  -------------------------- CHALLENGE 1-3: Show how ML could be used to solve the Defined Problem --------------------
@@ -33,7 +39,13 @@ help_content_ch1_ex3 = "------------------------ Challenge 1 Exercise 3 --------
                        "Task: Show how Machine Learning can be used to solve this problem"\
 
 def problem_solution():
-    pass
+    solution_definition = "\n" \
+                          "\n" \
+                          "\n" \
+                          "\n" \
+                          "\n" \
+                          "\n"
+    print(solution_definition)
 
 
 #  -------------------------- CHALLENGE 2-1: Predict The Average Credit/Bank Account -----------------------------------
