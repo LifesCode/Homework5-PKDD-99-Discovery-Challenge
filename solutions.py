@@ -63,7 +63,7 @@ def problem_solution():
                           "\n-> How would it help: At this point, if the model gets an acceptable accuracy, we have\n" \
                           "a model that can predict the value which defines how good a client is. With this value,\n" \
                           "it is easier to find out what client to offer different kinds of services that could not\n" \
-                          "be offered to a bad client.\n" \
+                          "be offered to a bad client. G also defines who is more likely to be trusted with a loan.\n" \
                           "\n"
     print(solution_definition)
 
