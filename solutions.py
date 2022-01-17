@@ -1,3 +1,4 @@
+import math
 import db_cleaning as dbc
 # import ml_functions as mlf
 
@@ -60,8 +61,31 @@ help_content_ch2_ex1 = "------------------------ Challenge 2 Exercise 1 --------
                        "Task: Predict the average amount of money for an account"\
 
 def predict_average_credit():
-    pass
 
+    def reseting_nan_value(value) -> float:
+        if math.isnan(value):
+            return 0.0
+        return value
+
+    trans_df = dbc.get_clean_table("trans.csv")
+    dict_predictions = {}
+
+    for total_trns, blc_after_trns, trans_date, account_id in zip(trans_df["trans_account_partner"], \
+        trans_df["balance_after_trans"], trans_df["trans_date"], trans_df["account_id"]):
+        year = trans_date.split("-")[0]
+        if year not in dict_predictions:
+            dict_predictions[year] = [1, 0, []]
+
+        dict_predictions[year][0] += 1
+        dict_predictions[year][1] += (reseting_nan_value(total_trns) + reseting_nan_value(blc_after_trns))
+        if account_id not in dict_predictions[year][2]:
+            dict_predictions[year][2].append(account_id)
+    
+    print(" \nPredictions of the total ammount per partner in a year: \n")
+    [print(f"  - {elem[0]} -> Prediction: {(elem[1][1])/sum(elem[1][2]) / 365}") \
+        for elem in dict_predictions.items()]
+    print("\n")
+    # print(dict_predictions)
 
 #  -------------------------- CHALLENGE 2-2-1: You Could Also ----------------------------------------------------------
 help_content_ch2_ex2_l1 = "------------------------ Challenge 2 Exercise 2 Line 1 ------------------" \
